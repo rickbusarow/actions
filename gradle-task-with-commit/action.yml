@@ -52,7 +52,7 @@ runs:
 
     - name: Run ${{ inputs.fix-task }}
       if: steps.can-push.outputs.can_push == 'true'
-      uses: ./.github/actions/gradle-task
+      uses: ./actions/gradle-task
       with:
         task: ${{ inputs.fix-task }}
         distribution: ${{ inputs.distribution }}
@@ -80,7 +80,7 @@ runs:
 
     - name: Run ${{ inputs.check-task }}
       if: steps.can-push.outputs.can_push != 'true'
-      uses: ./.github/actions/gradle-task
+      uses: ./actions/gradle-task
       with:
         task: ${{ inputs.check-task }}
         distribution: ${{ inputs.distribution }}

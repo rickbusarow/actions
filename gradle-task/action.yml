@@ -33,7 +33,7 @@ runs:
 
     - name: Set Gradle Args for runner OS
       id: gradle-args
-      uses: ./.github/actions/gradle-args
+      uses: ./actions/gradle-args
 
     - name: Gradle build action
       uses: gradle/gradle-build-action@3b1b3b9a2104c2b47fbae53f3938079c00c9bb87 # v3
