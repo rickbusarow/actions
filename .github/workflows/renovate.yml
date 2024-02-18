@@ -27,7 +27,7 @@ jobs:
           github-api-url: "https://github.acme-inc.com/api/v3"
 
       - name: Renovate
-        uses: renovatebot/github-action@v40
+        uses: renovatebot/github-action@2d90417499f45ff78a09586f7b9874b19817dba3 # v40.1.0
         with:
           configurationFile: renovate-sh.json
           token: ${{ steps.app-token.outputs.token }}
