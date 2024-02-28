@@ -1,12 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:best-practices",
-    "default:disableRateLimiting"
-  ],
-  "rebaseWhen": "auto",
-  "rebaseLabel": "rebase",
-  "stopUpdatingLabel": "renovate-ignore",
+  "extends": [ "config:best-practices", "default:disableRateLimiting" ],
   "labels": [ "dependencies", "automerge" ],
-  "packageRules": [ ]
+  "packageRules": [ ],
+  "rebaseLabel": "rebase",
+  "rebaseWhen": "auto",
+  "semanticCommits": "enabled",
+  "stopUpdatingLabel": "renovate-ignore"
 }
