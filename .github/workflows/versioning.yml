@@ -25,7 +25,7 @@ jobs:
           app-id: ${{ secrets.PR_BOT_APP_ID }}
           private-key: ${{ secrets.PR_BOT_PRIVATE_KEY }}
 
-      - uses: Actions-R-Us/actions-tagger@v2
+      - uses: Actions-R-Us/actions-tagger@330ddfac760021349fef7ff62b372f2f691c20fb # v2
         with:
           publish_latest_tag: true
           token: ${{ steps.app-token.outputs.token }}
