@@ -68,7 +68,7 @@ runs:
         fi
 
     - name: Run ${{ steps.decide-task.outputs.task }}
-      uses: rickbusarow/actions/gradle-task@v1
+      uses: rickbusarow/actions/gradle-task@bf0940965387f10bcb8b6699a79499d18167dfbe # v1
       with:
         task: ${{ steps.decide-task.outputs.task }}
         distribution: ${{ inputs.distribution }}
