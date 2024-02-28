@@ -1,5 +1,5 @@
-name: 'Commit and push changes from a shell command'
-description: 'This action performs common steps for a specific shell command.'
+name: Commit and push changes from a shell command
+description: This action performs common steps for a specific shell command.
 
 inputs:
   working-directory:
@@ -27,6 +27,8 @@ runs:
       shell: bash
       run: |
         if [[ ${{ inputs.personal-access-token }} == '' ]]; then
+          echo "can_push=false" >> $GITHUB_OUTPUT
+        elif [[ "${{ env.GITHUB_REF_PROTECTED }}" == 'true' ]]; then
           echo "can_push=false" >> $GITHUB_OUTPUT
         elif [[ ${{ github.event.pull_request.head.repo.full_name }} != ${{ github.repository }} ]]; then
           echo "can_push=false" >> $GITHUB_OUTPUT

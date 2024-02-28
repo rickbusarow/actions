@@ -4,64 +4,9 @@
     "config:best-practices",
     "default:disableRateLimiting"
   ],
-  "rebaseWhen": "conflicted",
+  "rebaseWhen": "auto",
   "rebaseLabel": "rebase",
   "stopUpdatingLabel": "renovate-ignore",
-  "labels": [
-    "dependencies",
-    "automerge"
-  ],
-  "packageRules": [
-    {
-      "groupName": "Kotlin and compiler plugins",
-      "matchPackagePrefixes": [
-        "org.jetbrains.kotlin:",
-        "com.google.devtools.ksp:",
-        "com.square.anvil:",
-        "dev.drewhamilton.poko:"
-      ],
-      "separateMultipleMajor": false
-    },
-    {
-      "groupName": "JUnit5 libs",
-      "matchPackagePrefixes": [
-        "org.junit.jupiter:",
-        "org.junit.platform:",
-        "org.junit.vintage:"
-      ]
-    },
-    {
-      "groupName": "KtLint libs",
-      "matchPackagePrefixes": [
-        "com.pinterest.ktlint:",
-        "com.rickbusarow.ktlint:",
-        "com.rickbusarow.ktrules:"
-      ]
-    },
-    {
-      "matchPackagePrefixes": [
-        "com.rickbusarow.dispatch:",
-        "com.rickbusarow.doks:",
-        "com.rickbusarow.gradle-dependency-sync:",
-        "com.rickbusarow.hermit:",
-        "com.rickbusarow.kase:",
-        "com.rickbusarow.kgx:",
-        "com.rickbusarow.ktlint:",
-        "com.rickbusarow.ktrules:",
-        "com.rickbusarow.lattice:",
-        "com.rickbusarow.modulecheck:"
-      ],
-      "matchPackageNames": [
-        "com.rickbusarow.module-check"
-      ],
-      "matchRepositories": [
-        "repo.maven.apache.org",
-        "plugins.gradle.org"
-      ],
-      "automerge": true,
-      "automergeStrategy": "rebase",
-      "automergeType": "pr",
-      "rebaseWhen": "smart"
-    }
-  ]
+  "labels": [ "dependencies", "automerge" ],
+  "packageRules": [ ]
 }

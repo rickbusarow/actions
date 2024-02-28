@@ -1,4 +1,4 @@
-name: Set Up Gradle and Run Task
+name: Set Up Gradle, Run Task, and Commit/Push Any Changes
 description: This action performs a "fix"-type Gradle task and commits/pushes changes if possible.
 
 inputs:
@@ -29,11 +29,13 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Check if PERSONAL_ACCESS_TOKEN is set
+    - name: Check if access token is set
       id: can-push
       shell: bash
       run: |
         if [[ "${{ inputs.personal-access-token }}" == '' ]]; then
+          echo "can_push=false" >> $GITHUB_OUTPUT
+        elif [[ "${{ env.GITHUB_REF_PROTECTED }}" == 'true' ]]; then
           echo "can_push=false" >> $GITHUB_OUTPUT
         elif [[ "${{ github.event.pull_request.head.repo.full_name }}" != "${{ github.repository }}" ]]; then
           echo "can_push=false" >> $GITHUB_OUTPUT
@@ -52,7 +54,7 @@ runs:
 
     - name: Run ${{ inputs.fix-task }}
       if: steps.can-push.outputs.can_push == 'true'
-      uses: ./actions/gradle-task
+      uses: rickbusarow/actions/gradle-task
       with:
         task: ${{ inputs.fix-task }}
         distribution: ${{ inputs.distribution }}
@@ -80,7 +82,7 @@ runs:
 
     - name: Run ${{ inputs.check-task }}
       if: steps.can-push.outputs.can_push != 'true'
-      uses: ./actions/gradle-task
+      uses: rickbusarow/actions/gradle-task
       with:
         task: ${{ inputs.check-task }}
         distribution: ${{ inputs.distribution }}

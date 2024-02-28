@@ -1,6 +1,10 @@
 name: Set Gradle Args for runner OS
 description: Sets gradle property and jvm arguments based on runner OS
 
+# This action sets JVM arguments based upon the runner's operating system,
+# since they all have different hardware and different memory footprints.
+# https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
+
 outputs:
   gradle-property-args:
     description: "ex: -Dfile.encoding=UTF-8"
@@ -18,6 +22,7 @@ runs:
         runnerOS=$RUNNER_OS
 
         totalMemory=0
+        # How much memory does the OS require?
         memoryOverhead=0
 
         case $runnerOS in
@@ -47,6 +52,10 @@ runs:
         esac
 
         availableMemory=$((totalMemory - memoryOverhead))
+
+        echo "    total memory: $totalMemory"
+        echo " memory overhead: $memoryOverhead"
+        echo "available memory: $availableMemory"
 
         jvmArgs="-Xmx${availableMemory}g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8"
 
