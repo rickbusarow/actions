@@ -33,7 +33,7 @@ runs:
 
     - name: Set Gradle Args for runner OS
       id: gradle-args
-      uses: ./actions/gradle-args
+      uses: rickbusarow/actions/gradle-args
 
     - name: Gradle build action
       uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3
@@ -64,7 +64,7 @@ runs:
         path: |
           ~/.gradle/caches/build-cache-1
           ~/.konan
-          ./**/build
+          ./**/build/**/!(*.dex)
           ./**/.gradle
         key: ${{runner.os}}-${{inputs.write-cache-key}}-${{steps.hashes.outputs.lib_versions}}-${{steps.hashes.outputs.gradle_props}}-${{steps.hashes.outputs.gradle_kts}}-${{steps.hashes.outputs.src_kt}}
         restore-keys: |
@@ -82,7 +82,7 @@ runs:
         path: |
           ~/.gradle/caches/build-cache-1
           ~/.konan
-          ./**/build
+          ./**/build/**/!(*.dex)
           ./**/.gradle
         key: ${{runner.os}}-${{inputs.restore-cache-key}}-${{steps.hashes.outputs.lib_versions}}-${{steps.hashes.outputs.gradle_props}}-${{steps.hashes.outputs.gradle_kts}}-${{steps.hashes.outputs.src_kt}}
         restore-keys: |
@@ -90,6 +90,8 @@ runs:
           ${{runner.os}}-${{inputs.restore-cache-key}}-${{steps.hashes.outputs.lib_versions}}-${{steps.hashes.outputs.gradle_props}}
           ${{runner.os}}-${{inputs.restore-cache-key}}-${{steps.hashes.outputs.lib_versions}}
           ${{runner.os}}-${{inputs.restore-cache-key}}
+
+    - uses: gradle/wrapper-validation-action@699bb18358f12c5b78b37bb0111d3a0e2276e0e2 # v2
 
     # Run the actual task.  Note that this still uses gradle-build-action for more fine-grained caching.
     - name: Run ${{ inputs.task }}
@@ -115,7 +117,7 @@ runs:
         path: |
           ~/.gradle/caches/build-cache-1
           ~/.konan
-          ./**/build
+          ./**/build/**/!(*.dex)
           ./**/.gradle
         key: ${{runner.os}}-${{inputs.write-cache-key}}-${{hashFiles('**/libs.versions.toml')}}-${{hashFiles('**/gradle.properties')}}-${{hashFiles('**/*.gradle.kts')}}-${{hashFiles('**/src/**/*.kt')}}
 
