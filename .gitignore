@@ -33,3 +33,5 @@ out/
 build/
 .gradle/
 *.log
+
+node_modules/
