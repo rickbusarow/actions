@@ -43,11 +43,21 @@ runs:
         token: ${{ inputs.personal-access-token }}
         fetch-depth: 0
 
-    - name: Run ${{ inputs.fix-command }}
+    - name: Decide Command (fix or check)
+      id: decide-command
       if: steps.can-push.outputs.can_push == 'true'
       shell: bash
+      run: |
+        if [[ "${{ steps.can-push.outputs.can_push }}" == 'true' ]]; then
+          echo "command=${{ inputs.fix-command }}" >> $GITHUB_OUTPUT
+        else
+          echo "command=${{ inputs.check-command }}" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Run ${{ steps.decide-command.outputs.command }}
+      shell: bash
       working-directory: ${{ inputs.working-directory }}
-      run: ${{ inputs.fix-command }}
+      run: ${{ steps.decide-command.outputs.command }}
 
     - name: Set Commit Message
       id: set-commit-message
@@ -55,20 +65,14 @@ runs:
       shell: bash
       run: |
         if [[ -z "${{ inputs.commit-message }}" ]]; then
-          echo "commit-message=Apply changes from ${{ inputs.fix-task }}" >> $GITHUB_OUTPUT
+          echo "commit-message=Apply changes from ${{ inputs.fix-command }}" >> $GITHUB_OUTPUT
         else
           echo "commit-message=${{ inputs.commit-message }}" >> $GITHUB_OUTPUT
         fi
 
-    - name: commit ${{ inputs.fix-task }} changes
+    - name: commit ${{ inputs.fix-command }} changes
       if: steps.can-push.outputs.can_push == 'true'
       uses: stefanzweifel/git-auto-commit-action@8756aa072ef5b4a080af5dc8fef36c5d586e521d # v5
       with:
         commit_message: ${{ steps.set-commit-message.outputs.commit-message }}
         commit_options: '--no-verify --signoff'
-
-    - name: Run ${{ inputs.check-task }}
-      if: steps.can-push.outputs.can_push != 'true'
-      shell: bash
-      working-directory: ${{ inputs.working-directory }}
-      run: ${{ inputs.check-command }}

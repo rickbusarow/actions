@@ -35,12 +35,16 @@ runs:
       run: |
         if [[ "${{ inputs.personal-access-token }}" == '' ]]; then
           echo "can_push=false" >> $GITHUB_OUTPUT
+          echo "Setting 'can_push' to false because the personal access token is null."
         elif [[ "${{ env.GITHUB_REF_PROTECTED }}" == 'true' ]]; then
           echo "can_push=false" >> $GITHUB_OUTPUT
+          echo "Setting 'can_push' to false because the branch is protected."
         elif [[ "${{ github.event.pull_request.head.repo.full_name }}" != "${{ github.repository }}" ]]; then
           echo "can_push=false" >> $GITHUB_OUTPUT
+          echo "Setting 'can_push' to false because the branch is a fork."
         else
           echo "can_push=true" >> $GITHUB_OUTPUT
+          echo "Setting 'can_push' to true."
         fi
 
     # ensure that we have the actual branch checked out.  By default, actions/checkout is headless.
@@ -52,11 +56,21 @@ runs:
         ref: ${{ github.head_ref }}
         fetch-depth: 0
 
-    - name: Run ${{ inputs.fix-task }}
+    - name: Decide Task (fix or check)
+      id: decide-task
       if: steps.can-push.outputs.can_push == 'true'
-      uses: rickbusarow/actions/gradle-task@main
+      shell: bash
+      run: |
+        if [[ "${{ steps.can-push.outputs.can_push }}" == 'true' ]]; then
+          echo "task=${{ inputs.fix-task }}" >> $GITHUB_OUTPUT
+        else
+          echo "task=${{ inputs.check-task }}" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Run ${{ steps.decide-task.outputs.task }}
+      uses: rickbusarow/actions/gradle-task@v1
       with:
-        task: ${{ inputs.fix-task }}
+        task: ${{ steps.decide-task.outputs.task }}
         distribution: ${{ inputs.distribution }}
         java-version: ${{ inputs.java-version }}
         restore-cache-key: ${{ inputs.restore-cache-key }}
@@ -79,13 +93,3 @@ runs:
       with:
         commit_message: ${{ steps.set-commit-message.outputs.commit-message }}
         commit_options: '--no-verify --signoff'
-
-    - name: Run ${{ inputs.check-task }}
-      if: steps.can-push.outputs.can_push != 'true'
-      uses: rickbusarow/actions/gradle-task@main
-      with:
-        task: ${{ inputs.check-task }}
-        distribution: ${{ inputs.distribution }}
-        java-version: ${{ inputs.java-version }}
-        restore-cache-key: ${{ inputs.restore-cache-key }}
-        write-cache-key: ${{ inputs.write-cache-key }}
