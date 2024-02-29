@@ -13,15 +13,6 @@
   "rebaseWhen": "auto",
   "semanticCommits": "enabled",
   "stopUpdatingLabel": "renovate-ignore",
-  "regexManagers": [
-    {
-      "description": "Update semantic-release version used by npx",
-      "fileMatch": [ "^\\.github/workflows/[^/]+\\.ya?ml$" ],
-      "matchStrings": [ "\\srun: npx semantic-release@(?<currentValue>.*?)\\s" ],
-      "datasourceTemplate": "pnpm",
-      "depNameTemplate": "semantic-release"
-    }
-  ],
   "customManagers": [
     {
       "customType": "regex",
