@@ -24,8 +24,8 @@ devDependencies:
     specifier: 6.0.3
     version: 6.0.3(semantic-release@23.0.2)
   '@semantic-release/github':
-    specifier: 9.2.6
-    version: 9.2.6(semantic-release@23.0.2)
+    specifier: 10.0.1
+    version: 10.0.1(semantic-release@23.0.2)
   conventional-changelog-angular:
     specifier: 7.0.0
     version: 7.0.0
@@ -427,6 +427,33 @@ packages:
   /@semantic-release/error@4.0.0:
     resolution: {integrity: sha512-mgdxrHTLOjOddRVYIYDo0fR3/v61GNN1YGkfbrjuIKg/uMgCd+Qzo3UAXJ+woLQQpos4pl5Esuw5A7AoNlzjUQ==}
     engines: {node: '>=18'}
+    dev: true
+
+  /@semantic-release/github@10.0.1(semantic-release@23.0.2):
+    resolution: {integrity: sha512-9orMUJBZtHn3D88bn3Yze/It3v2kcT+GBmpt9QAZy9AZ0UNpUMwviNEAToOfgWHOyrmoOq7h/zFUB+TM6RGMdA==}
+    engines: {node: '>=20.8.1'}
+    peerDependencies:
+      semantic-release: '>=20.1.0'
+    dependencies:
+      '@octokit/core': 5.1.0
+      '@octokit/plugin-paginate-rest': 9.2.0(@octokit/core@5.1.0)
+      '@octokit/plugin-retry': 6.0.1(@octokit/core@5.1.0)
+      '@octokit/plugin-throttling': 8.2.0(@octokit/core@5.1.0)
+      '@semantic-release/error': 4.0.0
+      aggregate-error: 5.0.0
+      debug: 4.3.4
+      dir-glob: 3.0.1
+      globby: 14.0.1
+      http-proxy-agent: 7.0.2
+      https-proxy-agent: 7.0.4
+      issue-parser: 7.0.0
+      lodash-es: 4.17.21
+      mime: 4.0.1
+      p-filter: 4.1.0
+      semantic-release: 23.0.2(typescript@5.3.3)
+      url-join: 5.0.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@semantic-release/github@9.2.6(semantic-release@23.0.2):
@@ -1431,6 +1458,17 @@ packages:
   /issue-parser@6.0.0:
     resolution: {integrity: sha512-zKa/Dxq2lGsBIXQ7CUZWTHfvxPC2ej0KfO7fIPqLlHB9J2hJ7rGhZ5rilhuufylr4RXYPzJUeFjKxz305OsNlA==}
     engines: {node: '>=10.13'}
+    dependencies:
+      lodash.capitalize: 4.2.1
+      lodash.escaperegexp: 4.1.2
+      lodash.isplainobject: 4.0.6
+      lodash.isstring: 4.0.1
+      lodash.uniqby: 4.7.0
+    dev: true
+
+  /issue-parser@7.0.0:
+    resolution: {integrity: sha512-jgAw78HO3gs9UrKqJNQvfDj9Ouy8Mhu40fbEJ8yXff4MW8+/Fcn9iFjyWUQ6SKbX8ipPk3X5A3AyfYHRu6uVLw==}
+    engines: {node: ^18.17 || >=20.6.1}
     dependencies:
       lodash.capitalize: 4.2.1
       lodash.escaperegexp: 4.1.2
