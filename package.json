@@ -6,7 +6,7 @@
     "@commitlint/format": "19.0.3",
     "@commitlint/types": "19.0.3",
     "@semantic-release/changelog": "6.0.3",
-    "@semantic-release/github": "10.0.1",
+    "@semantic-release/github": "10.0.2",
     "conventional-changelog-angular": "7.0.0",
     "conventional-changelog-cli": "4.1.0",
     "semantic-release": "23.0.2",
