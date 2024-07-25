@@ -24,8 +24,8 @@ devDependencies:
     specifier: 6.0.3
     version: 6.0.3(semantic-release@24.0.0)
   '@semantic-release/github':
-    specifier: 10.1.1
-    version: 10.1.1(semantic-release@24.0.0)
+    specifier: 10.1.2
+    version: 10.1.2(semantic-release@24.0.0)
   conventional-changelog-angular:
     specifier: 8.0.0
     version: 8.0.0
@@ -460,8 +460,8 @@ packages:
     engines: {node: '>=18'}
     dev: true
 
-  /@semantic-release/github@10.1.1(semantic-release@24.0.0):
-    resolution: {integrity: sha512-sSmsBKGpAlTtXf9rUJf/si16p+FwPEsvsJRjl3KCwFP0WywaSpynvUhlYvE18n5rzkQNbGJnObAKIoo3xFMSjA==}
+  /@semantic-release/github@10.1.2(semantic-release@24.0.0):
+    resolution: {integrity: sha512-xckHooEOnnhOKaEsGclc29uyBUwj5Y672wPwMUspi9bB9ZXZnLGHG0PG48cj1oAEmd5KRbhfzGCZupf4wPk+/w==}
     engines: {node: '>=20.8.1'}
     peerDependencies:
       semantic-release: '>=20.1.0'
@@ -2182,7 +2182,7 @@ packages:
     dependencies:
       '@semantic-release/commit-analyzer': 13.0.0(semantic-release@24.0.0)
       '@semantic-release/error': 4.0.0
-      '@semantic-release/github': 10.1.1(semantic-release@24.0.0)
+      '@semantic-release/github': 10.1.2(semantic-release@24.0.0)
       '@semantic-release/npm': 12.0.0(semantic-release@24.0.0)
       '@semantic-release/release-notes-generator': 14.0.0(semantic-release@24.0.0)
       aggregate-error: 5.0.0
