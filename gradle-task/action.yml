@@ -93,17 +93,13 @@ runs:
 
     - uses: gradle/actions/wrapper-validation@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4
 
-    # Run the actual task.  Note that this still uses gradle-build-action for more fine-grained caching.
     - name: Run ${{ inputs.task }}
-      uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4
-      with:
+      shell: bash
         # These arguments need to be on a single line. If they're defined with wrapping (using `|`),
         # something along the way to the actual CLI invocation gets confused and the jvmargs list
-        # winds up getting parsed as a single argument.
-        arguments: ${{steps.gradle-args.outputs.gradle-property-args}} ${{inputs.task}} '-Dorg.gradle.jvmargs=${{steps.gradle-args.outputs.gradle-jvm-args}}'
-        cache-read-only: false
-        build-root-directory: ${{inputs.build-root-directory}}
-        gradle-home-cache-cleanup: true
+      # winds up getting parsed as a single argument.
+      run: ./gradlew ${{steps.gradle-args.outputs.gradle-property-args}} ${{inputs.task}} '-Dorg.gradle.jvmargs=${{steps.gradle-args.outputs.gradle-jvm-args}}'
+      working-directory: ${{inputs.build-root-directory}}
 
     # Save the build cache to `write-cache-key`.
     # Skip if we already had an exact match, or if the key is not set, or if this is a Windows runner.
