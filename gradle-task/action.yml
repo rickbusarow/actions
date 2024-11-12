@@ -36,7 +36,7 @@ runs:
       uses: rickbusarow/actions/gradle-args@main
 
     - name: Gradle build action
-      uses: gradle/actions/setup-gradle@d156388eb19639ec20ade50009f3d199ce1e2808 # v4
+      uses: gradle/actions/setup-gradle@473878a77f1b98e2b5ac4af93489d1656a80a5ed # v4
       with:
         cache-read-only: false
         gradle-home-cache-cleanup: true
@@ -91,7 +91,7 @@ runs:
           ${{runner.os}}-${{inputs.restore-cache-key}}-${{steps.hashes.outputs.lib_versions}}
           ${{runner.os}}-${{inputs.restore-cache-key}}
 
-    - uses: gradle/actions/wrapper-validation@d156388eb19639ec20ade50009f3d199ce1e2808 # v4
+    - uses: gradle/actions/wrapper-validation@473878a77f1b98e2b5ac4af93489d1656a80a5ed # v4
 
     - name: Run ${{ inputs.task }}
       shell: bash
