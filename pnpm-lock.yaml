@@ -12,8 +12,8 @@ importers:
         specifier: 19.6.1
         version: 19.6.1(@types/node@20.11.21)(typescript@5.3.3)
       '@commitlint/config-angular':
-        specifier: 19.6.0
-        version: 19.6.0
+        specifier: 19.7.0
+        version: 19.7.0
       '@commitlint/config-conventional':
         specifier: 19.6.0
         version: 19.6.0
@@ -69,8 +69,8 @@ packages:
     resolution: {integrity: sha512-4/6xrkElCSBb7+6oZXlBJ/zytkxXgmTg5gk1Voj3GAWShTivtWrPtDYvHmF858WhA695YKgxMHEPNN74UFkK8w==}
     engines: {node: '>=v18'}
 
-  '@commitlint/config-angular@19.6.0':
-    resolution: {integrity: sha512-NExryCYJ/joUmN4kEPffG4AgepbGo6hqaEBSheSFemGF9MqDN3oJbqBSeoDJp77kR/CGmb+s3L2E2DI9MaTdQw==}
+  '@commitlint/config-angular@19.7.0':
+    resolution: {integrity: sha512-xXBplZDC3yjnE1knGvO9ETqpxRhW0xZ/ud7KHPXGtvbcpmLX/tUIsbCmZcNvM9cZYMnYqAvhrQMEqCsjlkOA7A==}
     engines: {node: '>=v18'}
 
   '@commitlint/config-conventional@19.6.0':
@@ -1582,7 +1582,7 @@ snapshots:
 
   '@commitlint/config-angular-type-enum@19.5.0': {}
 
-  '@commitlint/config-angular@19.6.0':
+  '@commitlint/config-angular@19.7.0':
     dependencies:
       '@commitlint/config-angular-type-enum': 19.5.0
 
