@@ -27,8 +27,8 @@ importers:
         specifier: 6.0.3
         version: 6.0.3(semantic-release@24.2.3(typescript@5.3.3))
       '@semantic-release/github':
-        specifier: 11.0.1
-        version: 11.0.1(semantic-release@24.2.3(typescript@5.3.3))
+        specifier: 11.0.2
+        version: 11.0.2(semantic-release@24.2.3(typescript@5.3.3))
       conventional-changelog-angular:
         specifier: 8.0.0
         version: 8.0.0
@@ -184,11 +184,11 @@ packages:
   '@octokit/openapi-types@20.0.0':
     resolution: {integrity: sha512-EtqRBEjp1dL/15V7WiX5LJMIxxkdiGJnabzYx5Apx4FkQIFgAfKumXeYAqqJCj1s+BMX4cPFIFC4OLCR6stlnA==}
 
-  '@octokit/openapi-types@21.2.0':
-    resolution: {integrity: sha512-xx+Xd6I7rYvul/hgUDqv6TeGX0IOGnhSg9IOeYgd/uI7IAqUy6DE2B6Ipv2M4mWoxaMcWjIzgTIcv8pMO3F3vw==}
+  '@octokit/openapi-types@25.0.0':
+    resolution: {integrity: sha512-FZvktFu7HfOIJf2BScLKIEYjDsw6RKc7rBJCdvCTfKsVnx2GEB/Nbzjr29DUdb7vQhlzS/j8qDzdditP0OC6aw==}
 
-  '@octokit/plugin-paginate-rest@11.0.0':
-    resolution: {integrity: sha512-HLz6T9HWeNkX3SVqc7FUYlh+TAg3G7gCc1MGuNcov8mSrFU9dc4ABmRmgqR9TsY1doUx42vLN5UxxWlnqBX8xw==}
+  '@octokit/plugin-paginate-rest@12.0.0':
+    resolution: {integrity: sha512-MPd6WK1VtZ52lFrgZ0R2FlaoiWllzgqFHaSZxvp72NmoDeZ0m8GeJdg4oB6ctqMTYyrnDYp592Xma21mrgiyDA==}
     engines: {node: '>= 18'}
     peerDependencies:
       '@octokit/core': '>=6'
@@ -199,11 +199,11 @@ packages:
     peerDependencies:
       '@octokit/core': '>=6'
 
-  '@octokit/plugin-throttling@9.0.3':
-    resolution: {integrity: sha512-DReKamrLBJOzld73dmmxV2H137QKJfsxszAczEZXeAJQ/Po6bzQacKajPdodA6T1jfmP9+waImus+d/R2j+R7Q==}
+  '@octokit/plugin-throttling@10.0.0':
+    resolution: {integrity: sha512-Kuq5/qs0DVYTHZuBAzCZStCzo2nKvVRo/TDNhCcpC2TKiOGz/DisXMCvjt3/b5kr6SCI1Y8eeeJTHBxxpFvZEg==}
     engines: {node: '>= 18'}
     peerDependencies:
-      '@octokit/core': ^6.0.0
+      '@octokit/core': ^6.1.3
 
   '@octokit/request-error@6.0.2':
     resolution: {integrity: sha512-WtRVpoHcNXs84+s9s/wqfHaxM68NGMg8Av7h59B50OVO0PwwMx+2GgQ/OliUd0iQBSNWgR6N8afi/KjSHbXHWw==}
@@ -216,8 +216,8 @@ packages:
   '@octokit/types@12.6.0':
     resolution: {integrity: sha512-1rhSOfRa6H9w4YwK0yrf5faDaDTb+yLyBUKOCV4xtCDB5VmIPqd/v9yr9o6SAzOAlRxMiRiCic6JVM1/kunVkw==}
 
-  '@octokit/types@13.1.0':
-    resolution: {integrity: sha512-nBwAFOYqVUUJ2AZFK4ZzESQptaAVqdTDKk8gE0Xr0o99WuPDSrhUC38x0F40xD9OUxXhOOuZKWNNVVLPSHQDvQ==}
+  '@octokit/types@14.0.0':
+    resolution: {integrity: sha512-VVmZP0lEhbo2O1pdq63gZFiGCKkm8PPp8AUOijlwPO6hojEVjspA0MWKP7E4hbvGxzFKNqKr6p0IYtOH/Wf/zA==}
 
   '@pnpm/config.env-replace@1.1.0':
     resolution: {integrity: sha512-htyl8TWnKL7K/ESFa1oW2UB5lVDxuF5DpM7tBi6Hu2LNL3mWkIzNLG6N4zoCUP1lCKNxWy/3iu8mS8MvToGd6w==}
@@ -254,8 +254,8 @@ packages:
     resolution: {integrity: sha512-mgdxrHTLOjOddRVYIYDo0fR3/v61GNN1YGkfbrjuIKg/uMgCd+Qzo3UAXJ+woLQQpos4pl5Esuw5A7AoNlzjUQ==}
     engines: {node: '>=18'}
 
-  '@semantic-release/github@11.0.1':
-    resolution: {integrity: sha512-Z9cr0LgU/zgucbT9cksH0/pX9zmVda9hkDPcgIE0uvjMQ8w/mElDivGjx1w1pEQ+MuQJ5CBq3VCF16S6G4VH3A==}
+  '@semantic-release/github@11.0.2':
+    resolution: {integrity: sha512-EhHimj3/eOSPu0OflgDzwgrawoGJIn8XLOkNS6WzwuTr8ebxyX976Y4mCqJ8MlkdQpV5+8T+49sy8xXlcm6uCg==}
     engines: {node: '>=20.8.1'}
     peerDependencies:
       semantic-release: '>=24.1.0'
@@ -1729,12 +1729,12 @@ snapshots:
 
   '@octokit/openapi-types@20.0.0': {}
 
-  '@octokit/openapi-types@21.2.0': {}
+  '@octokit/openapi-types@25.0.0': {}
 
-  '@octokit/plugin-paginate-rest@11.0.0(@octokit/core@6.0.1)':
+  '@octokit/plugin-paginate-rest@12.0.0(@octokit/core@6.0.1)':
     dependencies:
       '@octokit/core': 6.0.1
-      '@octokit/types': 13.1.0
+      '@octokit/types': 14.0.0
 
   '@octokit/plugin-retry@7.0.3(@octokit/core@6.0.1)':
     dependencies:
@@ -1743,10 +1743,10 @@ snapshots:
       '@octokit/types': 12.6.0
       bottleneck: 2.19.5
 
-  '@octokit/plugin-throttling@9.0.3(@octokit/core@6.0.1)':
+  '@octokit/plugin-throttling@10.0.0(@octokit/core@6.0.1)':
     dependencies:
       '@octokit/core': 6.0.1
-      '@octokit/types': 12.6.0
+      '@octokit/types': 14.0.0
       bottleneck: 2.19.5
 
   '@octokit/request-error@6.0.2':
@@ -1764,9 +1764,9 @@ snapshots:
     dependencies:
       '@octokit/openapi-types': 20.0.0
 
-  '@octokit/types@13.1.0':
+  '@octokit/types@14.0.0':
     dependencies:
-      '@octokit/openapi-types': 21.2.0
+      '@octokit/openapi-types': 25.0.0
 
   '@pnpm/config.env-replace@1.1.0': {}
 
@@ -1808,12 +1808,12 @@ snapshots:
 
   '@semantic-release/error@4.0.0': {}
 
-  '@semantic-release/github@11.0.1(semantic-release@24.2.3(typescript@5.3.3))':
+  '@semantic-release/github@11.0.2(semantic-release@24.2.3(typescript@5.3.3))':
     dependencies:
       '@octokit/core': 6.0.1
-      '@octokit/plugin-paginate-rest': 11.0.0(@octokit/core@6.0.1)
+      '@octokit/plugin-paginate-rest': 12.0.0(@octokit/core@6.0.1)
       '@octokit/plugin-retry': 7.0.3(@octokit/core@6.0.1)
-      '@octokit/plugin-throttling': 9.0.3(@octokit/core@6.0.1)
+      '@octokit/plugin-throttling': 10.0.0(@octokit/core@6.0.1)
       '@semantic-release/error': 4.0.0
       aggregate-error: 5.0.0
       debug: 4.3.4
@@ -2765,7 +2765,7 @@ snapshots:
     dependencies:
       '@semantic-release/commit-analyzer': 13.0.0(semantic-release@24.2.3(typescript@5.3.3))
       '@semantic-release/error': 4.0.0
-      '@semantic-release/github': 11.0.1(semantic-release@24.2.3(typescript@5.3.3))
+      '@semantic-release/github': 11.0.2(semantic-release@24.2.3(typescript@5.3.3))
       '@semantic-release/npm': 12.0.0(semantic-release@24.2.3(typescript@5.3.3))
       '@semantic-release/release-notes-generator': 14.0.0(semantic-release@24.2.3(typescript@5.3.3))
       aggregate-error: 5.0.0
