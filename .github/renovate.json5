@@ -3,11 +3,11 @@
   extends: [
     'config:recommended',
     'config:best-practices',
-    'default:disableRateLimiting'
+    'default:disableRateLimiting',
   ],
   labels: [
     'dependencies',
-    'automerge'
+    'automerge',
   ],
   packageRules: [],
   rebaseLabel: 'rebase',
@@ -19,14 +19,14 @@
     {
       customType: 'regex',
       description: 'Update semantic-release version used by npx',
-      fileMatch: [
-        '^\\.github/workflows/[^/]+\\.ya?ml$'
+      managerFilePatterns: [
+        '/^\\.github/workflows/[^/]+\\.ya?ml$/',
       ],
       matchStrings: [
-        '\\srun: npx semantic-release@(?<currentValue>.*?)\\s'
+        '\\srun: npx semantic-release@(?<currentValue>.*?)\\s',
       ],
       datasourceTemplate: 'pnpm',
-      depNameTemplate: 'semantic-release'
-    }
-  ]
+      depNameTemplate: 'semantic-release',
+    },
+  ],
 }
