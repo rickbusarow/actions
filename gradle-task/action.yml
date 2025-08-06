@@ -39,7 +39,7 @@ runs:
       uses: gradle/actions/setup-gradle@017a9effdb900e5b5b2fddfb590a105619dca3c3 # v4
       with:
         cache-read-only: false
-        cache-cleanup: true
+        cache-cleanup: on-success
 
     # Calculate all the hashes for keys just one time.
     # These should only be referenced before the actual task action, since that action
